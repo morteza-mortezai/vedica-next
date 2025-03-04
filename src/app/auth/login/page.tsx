@@ -12,13 +12,13 @@ import {
   CircularProgress,
 
 } from "@mui/material";
-import { login } from './login';
+import { loginAction } from './login.action';
 
 import NextLink from 'next/link';
 
 export default function LoginPage() {
 
-  const [state, action, pending] = useActionState(login, undefined)
+  const [state, action, pending] = useActionState(loginAction, undefined)
 
   return (
     <Container component="main" maxWidth="xs" sx={{ my: 8 }}>
