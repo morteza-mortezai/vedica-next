@@ -1,5 +1,8 @@
-import { api } from "@/service/api";
+import { api } from "@/lib/api"
+import { ILoginResponse } from "./loginResponse"
 
-export function login(body:ILoginBody){
-    return api.post('auth/login',body)
+export async function loginService(body:ILoginBody){
+    
+    const data=await api.post<ILoginResponse>('/auth/sign-in',body)
+    return data
 }

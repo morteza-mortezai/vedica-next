@@ -21,10 +21,11 @@ export async function loginAction(state: FormState, formData: FormData) {
   const { phone, password } = validatedFields.data
 
   try {
-
     await signIn('credentials', { phone, password })
+
     // return true
   } catch (error) {
+    throw error;
     return {
       message: 'نام کاربری یا کلمه عبور اشتباه است'
     }

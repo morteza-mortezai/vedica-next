@@ -38,7 +38,7 @@ export default function LoginPage() {
 
 
         {errors?.message && <Alert severity="error">
-{errors?.message}
+          {errors?.message}
         </Alert>}
 
 
@@ -47,7 +47,7 @@ export default function LoginPage() {
           <TextField
             name="phone"
             label="شماره همراه"
-
+            defaultValue={'+989362532122'}
             error={errors?.errors?.phone && Boolean(errors?.errors.phone)}
             helperText={errors?.errors?.phone && errors?.errors.phone}
             fullWidth
@@ -60,7 +60,7 @@ export default function LoginPage() {
             name="password"
             label="کلمه عبور"
             type="password"
-
+            defaultValue={'3132028MRtz'}
             error={errors?.errors?.password && Boolean(errors?.errors.password)}
             helperText={errors?.errors?.password && errors?.errors.password}
             fullWidth
