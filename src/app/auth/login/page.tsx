@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+
 import { useActionState } from 'react'
 import {
   TextField,
@@ -10,7 +10,7 @@ import {
   Paper,
   Link,
   CircularProgress,
-
+  Alert
 } from "@mui/material";
 import { loginAction } from './login.action';
 
@@ -18,7 +18,7 @@ import NextLink from 'next/link';
 
 export default function LoginPage() {
 
-  const [state, action, pending] = useActionState(loginAction, undefined)
+  const [errors, formAction, pending] = useActionState(loginAction, undefined)
 
   return (
     <Container component="main" maxWidth="xs" sx={{ my: 8 }}>
@@ -37,14 +37,19 @@ export default function LoginPage() {
         </Typography>
 
 
+        {errors?.message && <Alert severity="error">
+{errors?.message}
+        </Alert>}
 
-        <form style={{ width: '100%' }} action={action}>
+
+
+        <form style={{ width: '100%' }} action={formAction}>
           <TextField
             name="phone"
             label="شماره همراه"
 
-            error={state?.errors.phone && Boolean(state?.errors.phone)}
-            helperText={state?.errors.phone && state?.errors.phone}
+            error={errors?.errors?.phone && Boolean(errors?.errors.phone)}
+            helperText={errors?.errors?.phone && errors?.errors.phone}
             fullWidth
             margin="normal"
             variant="outlined"
@@ -56,8 +61,8 @@ export default function LoginPage() {
             label="کلمه عبور"
             type="password"
 
-            error={state?.errors.password && Boolean(state?.errors.password)}
-            helperText={state?.errors.password && state?.errors.password}
+            error={errors?.errors?.password && Boolean(errors?.errors.password)}
+            helperText={errors?.errors?.password && errors?.errors.password}
             fullWidth
             margin="normal"
             variant="outlined"
