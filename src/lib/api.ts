@@ -1,7 +1,7 @@
 const BASE_URL = process.env.API_BASE_URL || "https://api.example.com";
 
 // Helper function to build URL with query parameters
-function buildUrl(path: string, query?: Record<string, any>): string {
+function buildUrl(path: string, query?: Record<string, unknown>): string {
   const url = new URL(`${BASE_URL}${path}`);
   if (query) {
     Object.entries(query).forEach(([key, value]) => {
@@ -14,8 +14,8 @@ function buildUrl(path: string, query?: Record<string, any>): string {
 }
 
 type RequestOptions = {
-  body?: any;
-  query?: Record<string, any>;
+  body?: unknown;
+  query?: Record<string, unknown>;
   headers?: HeadersInit;
   cache?: RequestInit["cache"];
 };
@@ -52,7 +52,7 @@ export const api = {
 
   get<T>(
     path: string,
-    query?: Record<string, any>,
+    query?: Record<string, unknown>,
     headers?: HeadersInit,
     cache?: RequestInit["cache"]
   ): Promise<T> {
@@ -61,8 +61,8 @@ export const api = {
 
   post<T>(
     path: string,
-    body: any,
-    query?: Record<string, any>,
+    body: unknown,
+    query?: Record<string, unknown>,
     headers?: HeadersInit,
     cache?: RequestInit["cache"]
   ): Promise<T> {
@@ -71,8 +71,8 @@ export const api = {
 
   put<T>(
     path: string,
-    body: any,
-    query?: Record<string, any>,
+    body: unknown,
+    query?: Record<string, unknown>,
     headers?: HeadersInit,
     cache?: RequestInit["cache"]
   ): Promise<T> {
@@ -81,7 +81,7 @@ export const api = {
 
   delete<T>(
     path: string,
-    query?: Record<string, any>,
+    query?: Record<string, unknown>,
     headers?: HeadersInit,
     cache?: RequestInit["cache"]
   ): Promise<T> {

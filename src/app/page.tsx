@@ -1,9 +1,9 @@
-import Image from "next/image";
 
 export default function Home() {
   return (
-<div>
-  سلام 54545
-</div>
+    <div>
+      dashboard
+      <div>this is private page</div>
+    </div>
   );
 }
