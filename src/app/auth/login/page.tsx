@@ -36,13 +36,7 @@ export default function LoginPage() {
           ورود به حساب کاربری
         </Typography>
 
-
-        {errors?.message && <Alert severity="error">
-          {errors?.message}
-        </Alert>}
-
-
-
+ 
         <form style={{ width: '100%' }} action={formAction}>
           <TextField
             name="phone"
